@@ -1,0 +1,6 @@
+# ไฟล์ที่ไม่จำเป็นที่เกิดจาก macos และ windows
+.DS_Store
+desktop.ini
+
+# JetBrain .idea
+.idea/
