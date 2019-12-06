@@ -4,4 +4,4 @@
       - 9090:9090
     volumes:
       - ./config/prometheus-data:/prometheus-data
-    command: "--config.file=/prometheus-data/prometheus.yml"
+    command: "--config.file=/config/prometheus-data/prometheus.yml"
