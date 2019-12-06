@@ -1,0 +1,6 @@
+version: "3"
+    api:
+        build:
+            context: ./dockerfiles/api
+        image: thesis/containerized-apps/api:1.0.0
+        

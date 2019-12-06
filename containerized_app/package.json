@@ -1,0 +1,16 @@
+{
+  "name": "containerized_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Tanoo Kacha <tanoo.kacha@g.swu.ac.th>, Panya Batphantana <fanneioz@yahoo.co.th>",
+  "license": "ISC",
+  "dependencies": {
+    "express":"^4.17.1",
+    "prom-client": "11.5.3"
+  }
+}
