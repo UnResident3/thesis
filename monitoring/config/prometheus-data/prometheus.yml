@@ -2,7 +2,7 @@ scrape_configs:
   - job_name: 'prometheus'
     scrape_interval: 1s 
     static_configs:
-      - targets: ['http://52.194.124.192:3000']
+      - targets: ["52.194.124.192:3000"]
         labels:
           service: 'test-prom' 
           group: 'production' 
