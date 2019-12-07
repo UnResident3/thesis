@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+    api:
+        build:
+            context: ./dockerfiles/api
+        image: thesis/containerized-apps/api:1.0.0
+        volumes:
+            - .:/usr/src/app
+        expose: 
+            - 3000
+        ports:
+            - 3000:3000
