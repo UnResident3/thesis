@@ -1,0 +1,4 @@
+# BEGIN thesis project hosts ip to Elastic-IPs
+18.177.76.169       prometheus.thesis.remote
+52.194.124.192      apps.thesis.remote
+# END thesis project hosts ip to Elastic-IPs

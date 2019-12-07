@@ -4,3 +4,6 @@ desktop.ini
 
 # JetBrain .idea
 .idea/
+
+# Ignore VSCode Personal workspace setting
+etc/vscode/*
