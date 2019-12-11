@@ -1,14 +1,56 @@
 server {
-    listen  80;
+    listen 80;
     server_name apps.thesis.local;
 
-    location / {
-        fastcgi_pass  php:9000;
-        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-        fastcgi_param QUERY_STRING    $query_string;
+    sendfile off;
+    gzip on;
+    gzip_min_length 1000;
+    gzip_types text/plain text/xml application/xml;
+
+    set $target_path /vagrant/public;
+    if (!-d $target_path) {
+        set $target_path /vagrant/public;
     }
 
-    location ~ \.(gif|jpg|png)$ {
-        root /data/images;
+    root $target_path;
+
+    index index.html index.php;
+
+    set $my_https "";
+    if ($http_x_forwarded_protocol = https) {
+        set $my_https on;
+    }
+
+    location /nginx_status {
+        access_log   off;
+        allow 127.0.0.1;
+        deny all;
+    }
+
+    add_header X-Frame-Options "SAMEORIGIN";
+    add_header X-XSS-Protection "1; mode=block";
+    add_header X-Content-Type-Options "nosniff";
+
+
+    charset utf-8;
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location = /robots.txt  { access_log off; log_not_found off; }
+
+    error_page 404 /index.php;
+
+    location ~ \.php$ {
+        fastcgi_pass php:9000;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+
+    location ~ /\.(?!well-known).* {
+        deny all;
     }
 }
