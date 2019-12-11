@@ -1,13 +1,22 @@
 version: "3"
 
 services:
-    api:
+    php:
         build:
-            context: ./dockerfiles/api
-        image: thesis/containerized-apps/api:1.0.0
+            context: ./dockerfiles/php-apps
+        image: thesis/containerized-apps/php-apps:latest
         volumes:
-            - .:/usr/src/app
+            - .:/vagrant
         expose: 
-            - 3000
+            - 9000
+    nginx:
+        build:
+            context: ./dockerfiles/nginx
+        image: thesis/containerized-apps/nginx:latest
+        volumes:
+            - .:/vagrant
+        links: 
+            - php
         ports:
-            - 3000:3000
+            - 80:80
+            - 443:443
