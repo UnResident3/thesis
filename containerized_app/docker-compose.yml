@@ -9,6 +9,7 @@ services:
             - .:/vagrant
         expose: 
             - 9000
+
     nginx:
         build:
             context: ./dockerfiles/nginx
@@ -20,3 +21,8 @@ services:
         ports:
             - 80:80
             - 443:443
+
+networks:
+    default:
+        external:
+            name: thesis
