@@ -10,7 +10,7 @@
   "author": "Tanoo Kacha <tanoo.kacha@g.swu.ac.th>, Panya Batphantana <fanneioz@yahoo.co.th>",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "prom-client": "11.5.3"
   }
 }
